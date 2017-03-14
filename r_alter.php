@@ -47,7 +47,7 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
   <header class="bg-dark dk header navbar navbar-fixed-top-xs">
     <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#" class="navbar-brand" data-toggle="fullscreen">STUDENT</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i class="fa fa-cog"></i> </a> </div>
     <ul class="nav navbar-nav hidden-xs">
-      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">Activity</span> </a>
+      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">修改学生信息</span> </a>
        <!--  <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
           
         </section> -->
@@ -207,7 +207,7 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
       <section id="content">
         <section class="vbox">
           <section class="scrollable padder">
-            <form method="post" action="r_alter.php">
+            <form method="post" action="r_alter.php" style="margin-top:10px;">
 				<input type="text" name="stu_num" value="<?php echo $row['stu_num']; ?>">
 				<input type="text" name="name" value="<?php echo $row['name']; ?>">
 				<input type="text" name="class" value="<?php echo $row['class']; ?>">

@@ -57,12 +57,11 @@
 				
 				if($row == ''){
 					// $sql = ;
-					var_dump($user);
+					// var_dump($user);
 					$rel = $pdo -> prepare("insert into tb_admin(user,password,add_ph) values('$user','$psd','$ad_ph')");
 					$rel -> execute();
-
 				     move_uploaded_file($_FILES["file"]["tmp_name"],"ph_admin/".$ad_ph);
-
+				     echo "<script>alert('增加成功!')</script>;";
 				}else {
 
 					echo "<script>alert('账号已存在！');</script>";

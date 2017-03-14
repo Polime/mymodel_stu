@@ -180,7 +180,7 @@
            <section class="panel panel-default bg-white m-t-lg">
             <header class="panel-heading text-center"> <strong>管理员注册</strong> </header>
             <form action="admin_add_admin.php" class="panel-body wrapper-lg" method="post" name="" 
-            onsubmit="" enctype="multipart/form-data">
+            onsubmit="sub" enctype="multipart/form-data">
               <div class="form-group">
                 <label class="control-label">账号</label>
                 <input type="text" placeholder="请输入学号" class="form-control input-lg" name="users_admin"
