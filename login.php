@@ -1,5 +1,5 @@
  <?php 
- 	include('signup.php');
+ 	include('login/signup.php');
 	if (isset($_POST['sub'])) {
 		if ($_POST['users_num']=='') {
 			echo "<script>alert('用户名不能为空！');</script>";
@@ -70,7 +70,7 @@
           <label class="control-label">验证码</label>
           <div>
             <input name="inputverify" type="text" id="verify" placeholder="请输入验证码" class="form-control_code input-lg">
-            <img class="code" src="code.php" alt="加载失败" onclick="javascript:this.src='code.php?tm='+Math.random();">
+            <img class="code" src="login/code.php" alt="加载失败" onclick="javascript:this.src='login/code.php?tm='+Math.random();">
             <span style="float: right;">看不清？点击验证码刷新</span>
           </div>
         </div>

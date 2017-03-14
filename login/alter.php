@@ -1,5 +1,5 @@
 <?php
-	header("Content-Type:text/html;charset=utf-8");
+	// header("Content-Type:text/html;charset=utf-8");
 	function htmtocode($content){
 		$content = str_replace("\n","</br>",str_replace(" ","&nbsp;",$content)); 
 		//代替
