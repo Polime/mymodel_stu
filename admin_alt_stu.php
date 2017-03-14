@@ -2,7 +2,7 @@
   include('\alter.php');
   session_start();
   if (@$_SESSION['user']=='') {
-    echo "<script>alert('请登录！');location = 'login.php';</script>";
+    echo "<script>alert('请登录！');location = 'login/login.php';</script>";
   }
 ?>
 <html lang="en" class="app">
@@ -225,7 +225,7 @@
                   echo $row['profession'];
                   echo "</td>";
                   echo "<td>";
-                  echo "<form method='post' action='r_alter.php'>";
+                  echo "<form method='post' action='login/r_alter.php'>";
                   echo "<input type='submit' name='submit' value='修改'>";
                   $id = $row['id'];
                   echo "<input class='id' name='id' value='$id'>";

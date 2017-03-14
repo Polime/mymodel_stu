@@ -2,7 +2,7 @@
   // include('signup.php');
   @session_start();
   if (@$_SESSION['user']=='') {
-    echo "<script>alert('请登录！');location = 'login.php';</script>";
+    echo "<script>alert('请登录！');location = '/login/login.php';</script>";
   }
 ?>
 <html lang="en" class="app">
@@ -77,7 +77,7 @@
             <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333"> <!-- nav -->
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
-                  <li> <a href="index.html" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
+                  <li> <a href="admin_add_stu.php" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
                   <li > <a href="#layout" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>

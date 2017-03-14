@@ -22,9 +22,9 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
  ?>
 <?php 
   // include('signup.php');
-session_start();
+@session_start();
   if (@$_SESSION['user']=='') {
-    echo "<script>alert('请登录！');location = 'login.php';</script>";
+    echo "<script>alert('请登录！');location = 'login/login.php';</script>";
   }
 ?>
 <html lang="en" class="app">
