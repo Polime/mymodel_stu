@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
   // include('signup.php');
   @session_start();
   if (@$_SESSION['user']=='') {
@@ -20,7 +20,7 @@
   <header class="bg-dark dk header navbar navbar-fixed-top-xs">
     <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#" class="navbar-brand" data-toggle="fullscreen">STUDENT</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i class="fa fa-cog"></i> </a> </div>
     <ul class="nav navbar-nav hidden-xs">
-      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">Activity</span> </a>
+      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">修改权限</span> </a>
        <!--  <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
           
         </section> -->
@@ -89,7 +89,7 @@
                     <ul class="nav lt">
                       <li > <a href="admin_alt_stu.php" > <i class="fa fa-angle-right"></i> <span>修改学生信息</span> </a> </li>
                       <!-- <li > <a href="icons.html" > <b class="badge bg-info pull-right">369</b> <i class="fa fa-angle-right"></i> <span>Icons</span> </a> </li> -->
-                      <li > <a href="update.php" > <i class="fa fa-angle-right"></i> <span>修改成绩</span> </a> </li>
+                      <li > <a href="grid.html" > <i class="fa fa-angle-right"></i> <span>修改成绩</span> </a> </li>
                       <!-- <li > <a href="widgets.html" > <b class="badge pull-right">8</b> <i class="fa fa-angle-right"></i> <span>Widgets</span> </a> </li>
                       <li > <a href="components.html" > <i class="fa fa-angle-right"></i> <span>Components</span> </a> </li>
                       <li > <a href="list.html" > <i class="fa fa-angle-right"></i> <span>List group</span> </a> </li>
@@ -115,7 +115,7 @@
                   </li>
                   <li > <a href="admin_add_admin.php" ><!--  <b class="badge bg-danger pull-right">3</b>  --><i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>增加管理员</span> </a> </li>
                   <!-- <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>修改权限</span> </a> </li> -->
-                  <li > <a href="#pages" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
+                  <li class="active"> <a href="update.php" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
                     <!-- <ul class="nav lt">
                       <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>修改密码</span> </a> </li>
                       <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除管理员</span> </a> </li> -->
@@ -167,7 +167,7 @@
       <section id="content">
         <section class="vbox">
           <section class="scrollable padder">
-            <p>欢迎来到学生成绩管理系统！</p>
+            
           </section>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>

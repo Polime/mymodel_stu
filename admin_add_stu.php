@@ -115,7 +115,7 @@
                   </li>
                   <li > <a href="admin_add_admin.php" ><!--  <b class="badge bg-danger pull-right">3</b>  --><i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>增加管理员</span> </a> </li>
                   <!-- <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>修改权限</span> </a> </li> -->
-                  <li > <a href="#pages" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
+                  <li > <a href="update.php" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
                     <!-- <ul class="nav lt">
                       <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>修改密码</span> </a> </li>
                       <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除管理员</span> </a> </li> -->

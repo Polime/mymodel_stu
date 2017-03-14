@@ -85,7 +85,7 @@
             <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333"> <!-- nav -->
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
-                  <li> <a href="index.html" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
+                  <li> <a href="admin_add_stu.php" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
                   <li > <a href="#layout" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
@@ -123,7 +123,7 @@
                   </li>
                   <li > <a href="admin_add_admin.php" ><!--  <b class="badge bg-danger pull-right">3</b>  --><i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>增加管理员</span> </a> </li>
                   <!-- <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>修改权限</span> </a> </li> -->
-                  <li > <a href="#pages" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
+                  <li > <a href="update.php" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
                     <!-- <ul class="nav lt">
                       <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>修改密码</span> </a> </li>
                       <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除管理员</span> </a> </li> -->
