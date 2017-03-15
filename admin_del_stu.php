@@ -1,5 +1,4 @@
 <?php 
-  include('login/del_stu.php');
   @session_start();
   if (@$_SESSION['user']=='') {
     echo "<script>alert('请登录！');location = '/login/login.php';</script>";
@@ -78,14 +77,14 @@
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
                   <li> <a href="admin_add_stu.php" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
-                  <li class="active"> <a href="#layout" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
+                  <li class="active"> <a href="admin_del_stu.php" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
                     <ul class="nav lt">
-                      <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
+                      <li > <a href="admin_del_stu.php" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
                       <li > <a href="layout-r.html" > <i class="fa fa-angle-right"></i> <span>删除成绩</span> </a> </li>
                       <!-- <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>H-Layout</span> </a> </li> -->
                     </ul>
                   </li>
-                  <li > <a href="#uikit" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
+                  <li > <a href="admin_alt_stu.php" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="admin_alt_stu.php" > <i class="fa fa-angle-right"></i> <span>修改学生信息</span> </a> </li>
                       <!-- <li > <a href="icons.html" > <b class="badge bg-info pull-right">369</b> <i class="fa fa-angle-right"></i> <span>Icons</span> </a> </li> -->
@@ -115,7 +114,7 @@
                   </li>
                   <li > <a href="admin_add_admin.php" ><!--  <b class="badge bg-danger pull-right">3</b>  --><i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>增加管理员</span> </a> </li>
                   <!-- <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>修改权限</span> </a> </li> -->
-                  <li > <a href="#pages" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
+                  <li > <a href="update.<?php  ?>" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span>修改权限</span> </a> </li>
                     <!-- <ul class="nav lt">
                       <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>修改密码</span> </a> </li>
                       <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除管理员</span> </a> </li> -->
@@ -183,8 +182,17 @@
                 <label class="control-label">年级</label>
                 <select name="class">
                 <option value=""></option>
-                  <option value="151">15级1班</option>
-                  <option value="161">16级1班</option>
+                  <?php
+                    @mysql_connect('localhost','root','root') or die("数据库连接失败");
+                    @mysql_select_db('db_student') or die("数据库选择失败");
+                    $class = mysql_query("select DISTINCT class from tb_stu order by class");
+                    while($row_class = mysql_fetch_array($class)){
+                      $classname = $row_class['class'];
+                  ?>
+                    <option value="<?php echo $classname?>"><?php echo $classname?></option>
+                  <?php
+                    }
+                  ?>
                 </select>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" name="info" placeholder="学号/姓名" >
@@ -193,45 +201,8 @@
                 <input type="submit" name="sub" value="搜索">
               </div>
             </form>
-            <table id="table_stu_information">
-              <tr>
-                <td>学号</td>
-                <td>姓名</td>
-                <td>班级</td>
-                <td>专业</td>
-              </tr>
-              <?php 
-                foreach($res as $row){
-                  $stu_num = $row['stu_num'];
-                  echo "<tr>";
-                  echo "<td>";
-                  echo $row['stu_num'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo $row['name'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo $row['class'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo $row['profession'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo "<form method='post' action='r_alter.php'>";
-                  echo "<input type='submit' name='submit' value='修改'>";
-                  $id = $row['id'];
-                  echo "<input class='id' name='id' value='$id'>";
-                  echo "</form>";
-                  // $_SESSION['id'] = $row['id'];
-                  // $_SESSION['stu_num'] = $row['stu_num'];
-                  // $_SESSION['name'] = $row['name'];
-                  // $_SESSION['class'] = $row['class'];
-                  // $_SESSION['pro'] = $row['profession'];
-                  echo "</td>";
-                  echo "</tr>";
-                }
-               ?>
-            </table>
+            <?php include('login/del_stu.php'); ?>
+            
           </section>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>

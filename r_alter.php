@@ -105,9 +105,9 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
                   <li> <a href="index.html" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
-                  <li > <a href="#layout" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
+                  <li > <a href="admin_del_stu.php" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
                     <ul class="nav lt">
-                      <li > <a href="layout-c.html" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
+                      <li > <a href="admin_del_stu.php" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
                       <li > <a href="layout-r.html" > <i class="fa fa-angle-right"></i> <span>删除成绩</span> </a> </li>
                       <!-- <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>H-Layout</span> </a> </li> -->
                     </ul>
@@ -155,10 +155,10 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
                   </li>
                   <li > <a href="admin_add_admin.php" ><!--  <b class="badge bg-danger pull-right">3</b>  --><i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>增加管理员</span> </a> </li>
                   <!-- <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>修改权限</span> </a> </li> -->
-                  <li > <a href="#pages" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改权限</span> </a>
-                    <ul class="nav lt">
-                      <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>修改密码</span> </a> </li>
-                      <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除管理员</span> </a> </li>
+                  <li > <a href="update.php" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改权限</span> </a>
+                    <!-- <ul class="nav lt"> -->
+                      <!-- <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>修改密码</span> </a> </li> -->
+                      <!-- <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>删除管理员</span> </a> </li> -->
                       <!-- <li > <a href="invoice.html" > <i class="fa fa-angle-right"></i> <span>Invoice</span> </a> </li>
                       <li > <a href="intro.html" > <i class="fa fa-angle-right"></i> <span>Intro</span> </a> </li>
                       <li > <a href="master.html" > <i class="fa fa-angle-right"></i> <span>Master</span> </a> </li>
@@ -166,7 +166,7 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
                       <li > <a href="signin.html" > <i class="fa fa-angle-right"></i> <span>Signin</span> </a> </li>
                       <li > <a href="signup.html" > <i class="fa fa-angle-right"></i> <span>Signup</span> </a> </li>
                       <li > <a href="404.html" > <i class="fa fa-angle-right"></i> <span>404</span> </a> </li> -->
-                    </ul>
+                    <!-- </ul> -->
                   </li>
                 </ul>
               </nav>
