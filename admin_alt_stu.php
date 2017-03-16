@@ -183,16 +183,33 @@
                 <label class="control-label">专业</label>
                 <select name="pro">
                 <option value=""></option>
-                  <option value="网络">网络工程</option>
-                  <option value="软件">软件工程</option>
-                  <option value="计理">计算机科学与技术</option>
+                  <?php
+                    @mysql_connect('localhost','root','root') or die("数据库连接失败");
+                    @mysql_select_db('db_student') or die("数据库选择失败");
+                    $profession = mysql_query("select DISTINCT profession from tb_stu order by profession");
+                    while($row_pro = mysql_fetch_array($profession)){
+                      $pro = $row_pro['profession'];
+                  ?>
+                    <option value="<?php echo $pro?>"><?php echo $pro?></option>
+                  <?php
+                    }
+                  ?>
                 </select>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label class="control-label">年级</label>
                 <select name="class">
                 <option value=""></option>
-                  <option value="151">15级1班</option>
-                  <option value="161">16级1班</option>
+                  <?php
+                    @mysql_connect('localhost','root','root') or die("数据库连接失败");
+                    @mysql_select_db('db_student') or die("数据库选择失败");
+                    $class = mysql_query("select DISTINCT class from tb_stu order by class");
+                    while($row_class = mysql_fetch_array($class)){
+                      $classname = $row_class['class'];
+                  ?>
+                    <option value="<?php echo $classname?>"><?php echo $classname?></option>
+                  <?php
+                    }
+                  ?>
                 </select>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" name="info" placeholder="学号/姓名" >
