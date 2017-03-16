@@ -22,7 +22,8 @@
 	// }
 	$user = @$_POST['users_admin'];
 	$psd = @$_POST['password'];
-	$ad_ph = md5(@$_FILES['file']['name']);
+	$ad_ph = @$_FILES['file']['name'];
+	// $md_ad_ph = md5($ad_ph);
 	$postfix = @$_FILES['file']['type'];
 	$pdo = new PDO("mysql:host=localhost;dbname=db_admin","root","root");
 	// echo "PDO连接成功";

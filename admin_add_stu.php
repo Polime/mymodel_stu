@@ -208,7 +208,7 @@
               </div>
               <div class="form-group">
                 <label class="control-label" >名字</label>
-                <input type="text" id="inputPassword" placeholder="请输入学号" class="form-control input-lg" name="name">
+                <input type="text" id="inputPassword" placeholder="请输入姓名" class="form-control input-lg" name="name">
               </div>
               <div class="form-group">
                 <label class="control-label" >头像</label>

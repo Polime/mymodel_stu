@@ -140,10 +140,10 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
                       <li > <a href="timeline.html" > <i class="fa fa-angle-right"></i> <span>Timeline</span> </a> </li> -->
                     </ul>
                   </li>
-                  <li > <a href="#pages" > <i class="fa fa-file-text icon"> <b class="bg-primary"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>查找学生信息</span> </a>
+                 <!--  <li > <a href="#pages" > <i class="fa fa-file-text icon"> <b class="bg-primary"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>查找学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="gallery.html" > <i class="fa fa-angle-right"></i> <span>查找学生</span> </a> </li>
-                      <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>查找成绩</span> </a> </li>
+                      <li > <a href="profile.html" > <i class="fa fa-angle-right"></i> <span>查找成绩</span> </a> </li> -->
                       <!-- <li > <a href="invoice.html" > <i class="fa fa-angle-right"></i> <span>Invoice</span> </a> </li>
                       <li > <a href="intro.html" > <i class="fa fa-angle-right"></i> <span>Intro</span> </a> </li>
                       <li > <a href="master.html" > <i class="fa fa-angle-right"></i> <span>Master</span> </a> </li>
@@ -151,8 +151,8 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
                       <li > <a href="signin.html" > <i class="fa fa-angle-right"></i> <span>Signin</span> </a> </li>
                       <li > <a href="signup.html" > <i class="fa fa-angle-right"></i> <span>Signup</span> </a> </li>
                       <li > <a href="404.html" > <i class="fa fa-angle-right"></i> <span>404</span> </a> </li> -->
-                    </ul>
-                  </li>
+                    <!-- </ul>
+                  </li> -->
                   <li > <a href="admin_add_admin.php" ><!--  <b class="badge bg-danger pull-right">3</b>  --><i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>增加管理员</span> </a> </li>
                   <!-- <li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>修改权限</span> </a> </li> -->
                   <li > <a href="update.php" > <i class="fa fa-pencil icon"> <b class="bg-primary"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改权限</span> </a>

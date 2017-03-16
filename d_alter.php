@@ -1,4 +1,5 @@
-<?php 
+<?php
+  @session_start();
   @$id_num = $_POST['alt'];
   @mysql_connect('localhost','root','root') or die("数据库连接失败");
   @mysql_select_db('db_admin')or die ("数据表选择失败");
