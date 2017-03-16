@@ -1,6 +1,8 @@
 <style type="text/css">
 	#stu{
 		text-align: center;
+		margin-top: 10px;
+		margin-left: 10px;
 	}
 	#stu tr{
 		/*width: 30px;*/
