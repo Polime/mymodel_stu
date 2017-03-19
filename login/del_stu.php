@@ -102,6 +102,9 @@
 			$del = "delete from tb_stu where id = $num";
 			// var_dump($num);
 			$ds = mysql_query($del);
+			echo "<script>alert('删除成功!');</script>";
+			echo "<script>window.location.href='admin_del_stu.php';</script>";
+
 		}
 
  ?>

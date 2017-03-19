@@ -54,6 +54,8 @@
 	}else if(isset($_POST['submit'])){
 		$delete = "delete from tb_admin where id = $id_num";
 		$del = mysql_query($delete);
-		echo "<script>alter('删除成功!');</script>";
+		echo "<script>alert('删除成功!');</script>";
+		echo "<script>window.location.href='update.php';</script>";
+
 	}
  ?>
