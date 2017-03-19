@@ -60,7 +60,7 @@
         
        ?>
       }
-      <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left"> <img src=""> </span> <?php echo @$_SESSION['user']; ?> <b class="caret"></b> </a>
+      <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left"><?php include('login/photo.php');?> </span> <?php echo @$_SESSION['user']; ?> <b class="caret"></b> </a>
         <ul class="dropdown-menu animated fadeInRight">
           <span class="arrow top"></span>
           <!-- <li> <a href="#">Settings</a> </li>
@@ -172,9 +172,6 @@
         <section class="vbox">
           <section class="scrollable padder">
             <p>欢迎来到学生成绩管理系统！</p>
-            <?php 
-              readfile("ph_admin/8ad4b31c8701a18bbef9f231982f07082838feba.jpg");
-            ?>
           </section>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>
