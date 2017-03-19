@@ -164,6 +164,7 @@
         </section>
       </aside>
       <!-- /.aside -->
+      <<!-- br>
       <br>
       <br>
       <br>
@@ -180,8 +181,7 @@
       <br>
       <br>
       <br>
-      <br>
-      <br>
+      <br> -->
         <section id="content">
         <section class="vbox">
           <section class="scrollable padder">
