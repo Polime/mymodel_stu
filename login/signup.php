@@ -40,9 +40,14 @@
 		$_SESSION['user'] = $row['user'];
 	}else if (preg_match('/^\d{12}$/', @$_POST['users_num'])) {
 		$pdo_stu = new PDO("mysql:host=localhost;dbname=db_student","root","root"); 
+		$pdo_stu -> query("set names utf8;");
 		$user = @$_POST['users_num'];
-		$res = $pdo_stu -> query("select stu_num,password from tb_stu where stu_num = '$user'");
+		$res = $pdo_stu -> query("select * from tb_stu where stu_num = '$user'");
 		$row = $res -> fetch();
+		$_SESSION['stu_num'] = $row['stu_num'];
+		$_SESSION['name'] = $row['name'];
+		$_SESSION['pro'] = $row['profession'];
+		$_SESSION['class'] = $row['class'];
 	}
  ?>
  

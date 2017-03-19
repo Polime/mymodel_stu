@@ -56,10 +56,6 @@
           </section>
         </section>
       </li>
-      <?php 
-        
-       ?>
-      }
       <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left"><?php include('login/photo.php');?> </span> <?php echo @$_SESSION['user']; ?> <b class="caret"></b> </a>
         <ul class="dropdown-menu animated fadeInRight">
           <span class="arrow top"></span>

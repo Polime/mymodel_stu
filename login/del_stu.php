@@ -33,6 +33,8 @@
 		// $sql = 
 		if ($pro == ''||$class == '') {
 			$res = mysql_query("select * from tb_stu where profession = '$pro' or class = '$class'");
+		}if ($pro == ''&&$class == '') {
+			$res = mysql_query("select * from tb_stu");
 		}
 		else {
 			$res = mysql_query("select * from tb_stu where profession = '$pro' and class = '$class'");
@@ -102,9 +104,7 @@
 			$del = "delete from tb_stu where id = $num";
 			// var_dump($num);
 			$ds = mysql_query($del);
-			echo "<script>alert('删除成功!');</script>";
-			echo "<script>window.location.href='admin_del_stu.php';</script>";
-
+			echo "<script>location = 'admin_del_stu.php';</script>";
 		}
 
  ?>

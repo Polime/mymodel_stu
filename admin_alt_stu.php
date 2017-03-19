@@ -186,6 +186,7 @@
                   <?php
                     @mysql_connect('localhost','root','root') or die("数据库连接失败");
                     @mysql_select_db('db_student') or die("数据库选择失败");
+                    mysql_query("set names 'utf8';");
                     $profession = mysql_query("select DISTINCT profession from tb_stu order by profession");
                     while($row_pro = mysql_fetch_array($profession)){
                       $pro = $row_pro['profession'];

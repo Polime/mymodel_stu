@@ -1,7 +1,7 @@
 <?php 
 	@mysql_connect('localhost','root','root') or die("数据库连接失败");
 	@mysql_select_db('db_student') or die("数据库选择失败");
-
+	mysql_query("set names 'utf8';");
 	$user = @$_POST['users_stu'];
 	$psd = @$_POST['password'];
 	$name = @$_POST['name'];
@@ -39,9 +39,9 @@
 				if($row == ''){
 					// $sql = ;
 					// var_dump($user);
-					$inser = "insert into tb_stu(stu_num,password,stu_ph,name,class,profession) values('$user','$psd',
-					'$ad_ph','$name','$clas','$pre')";
-					$rel = mysql_query($inser);
+					// $inser = ;
+					$rel = mysql_query("insert into tb_stu(stu_num,password,stu_ph,name,class,profession) values('$user','$psd',
+					'$ad_ph','$name','$clas','$pre')");
 					// $rel -> execute();
 				     move_uploaded_file($_FILES["file"]["tmp_name"],"ph_stu/".$ad_ph);
 				     echo "<script>alert('增加成功!');</script>";

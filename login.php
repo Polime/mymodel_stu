@@ -60,7 +60,7 @@
       <form action="login.php" class="panel-body wrapper-lg" method="post" name="myform" onsubmit="up()">
         <div class="form-group">
           <label class="control-label">学号</label>
-          <input type="text" placeholder="请输入学号" class="form-control input-lg" name="users_num" />
+          <input type="text" placeholder="请输入学号 或管理员账号" class="form-control input-lg" name="users_num" />
         </div>
         <div class="form-group">
           <label class="control-label">密码</label>
@@ -70,7 +70,7 @@
           <label class="control-label">验证码</label>
           <div>
             <input name="inputverify" type="text" id="verify" placeholder="请输入验证码" class="form-control_code input-lg">
-            <img class="code" src="login/code.php" alt="加载失败" onclick="javascript:this.src='login/code.php?tm='+Math.random();">
+            <img class="code" src="login/verify.php" alt="加载失败" onclick="javascript:this.src='login/code.php?tm='+Math.random();">
             <span style="float: right;">看不清？点击验证码刷新</span>
           </div>
         </div>

@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+  @session_start();
+  if (@$_SESSION['name']=='') {
+    echo "<script>alert('请登录！');location = 'login.php';</script>";
+  }
+ ?>
+<!DOCTYPE html>
 <html lang="en" class="app">
 <head>
 <meta charset="utf-8" />
@@ -14,7 +20,7 @@
   <header class="bg-dark dk header navbar navbar-fixed-top-xs">
     <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#" class="navbar-brand" data-toggle="fullscreen"><!-- <img src="images/logo.png" class="m-r-sm"> -->STUDENT</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i class="fa fa-cog"></i> </a> </div>
     <ul class="nav navbar-nav hidden-xs">
-      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">Activity</span> </a>
+      <!-- <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">Activity</span> </a> -->
        <!--  <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
           <div class="wrapper lter m-t-n-xs"> <a href="#" class="thumb pull-left m-r"> <img src="images/avatar.jpg" class="img-circle"> </a>
             <div class="clear"> <a href="#"><span class="text-white font-bold">@Mike Mcalidek</a></span> <small class="block">Art Director</small> <a href="#" class="btn btn-xs btn-success m-t-xs">Upgrade</a> </div>
@@ -31,13 +37,13 @@
             </div>
           </div>
         </section> -->
-      </li>
+      <!-- </li> -->
       <!-- <li>
         <div class="m-t m-l"> <a href="price.html" class="dropdown-toggle btn btn-xs btn-primary" title="Upgrade"><i class="fa fa-long-arrow-up"></i></a> </div>
       </li> -->
     </ul>
     <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
-      <li class="hidden-xs"> <a href="#" class="dropdown-toggle dk" data-toggle="dropdown"> <i class="fa fa-bell"></i> <span class="badge badge-sm up bg-danger m-l-n-sm count">x</span> </a>
+      <!-- <li class="hidden-xs"> <a href="#" class="dropdown-toggle dk" data-toggle="dropdown"> <i class="fa fa-bell"></i> <span class="badge badge-sm up bg-danger m-l-n-sm count">x</span> </a> -->
         <!-- <section class="dropdown-menu aside-xl">
           <section class="panel bg-white">
             <header class="panel-heading b-light bg-light"> <strong>You have <span class="count">2</span> notifications</strong> </header>
@@ -47,7 +53,7 @@
             <footer class="panel-footer text-sm"> <a href="#" class="pull-right"><i class="fa fa-cog"></i></a> <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a> </footer>
           </section>
         </section> -->
-      </li>
+      <!-- </li> -->
       <li class="dropdown hidden-xs"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"><i class="fa fa-fw fa-search"></i></a>
         <section class="dropdown-menu aside-xl animated fadeInUp">
           <section class="panel bg-white">
@@ -63,7 +69,7 @@
           </section>
         </section>
       </li>
-      <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left"> <img src="images/avatar.jpg"> </span> John.Smith <b class="caret"></b> </a>
+      <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left"> <img src="images/avatar.jpg"> </span> <?php echo $_SESSION['name']; ?> <b class="caret"></b> </a>
         <ul class="dropdown-menu animated fadeInRight">
          <!--  <span class="arrow top"></span>
           <li> <a href="#">Settings</a> </li>
@@ -71,7 +77,8 @@
           <li> <a href="#"> <span class="badge bg-danger pull-right">3</span> Notifications </a> </li>
           <li> <a href="docs.html">Help</a> </li>
           <li class="divider"></li> -->
-          <li> <a href="modal.lockme.html" data-toggle="ajaxModal" >退出登录</a> </li>
+          <li> <a href="alt_password.php">修改密码</a> </li>
+          <li> <a href="login.php" >退出登录</a> </li>
         </ul>
       </li>
     </ul>
@@ -98,8 +105,8 @@
             <div class="wrapper">
                       <div class="clearfix m-b"> <a href="#" class="pull-left thumb m-r"> <img src="images/avatar.jpg" class="img-circle"> </a>
                         <div class="clear">
-                          <div class="h3 m-t-xs m-b-xs">John.Smith</div>
-                          <small class="text-muted"><i class="fa fa-map-marker"></i> London, UK</small> </div>
+                          <div class="h3 m-t-xs m-b-xs"><?php echo $_SESSION['name']; ?></div>
+                          <small class="text-muted"><i class="fa fa-map-marker"></i> 龙潭区, 吉林市</small> </div>
                       </div>
                       <div class="panel wrapper panel-success">
                         <div class="row">
@@ -110,9 +117,9 @@
                       </div>
                       <!-- <div class="btn-group btn-group-justified m-b"> <a class="btn btn-primary btn-rounded" data-toggle="button"> <span class="text"> <i class="fa fa-eye"></i> Follow </span> <span class="text-active"> <i class="fa fa-eye-slash"></i> Following </span> </a> <a class="btn btn-dark btn-rounded" data-loading-text="Connecting"> <i class="fa fa-comment-o"></i> Chat </a> </div> -->
                       <div> <small class="text-uc text-xs text-muted">学号</small>
-                        <p>Artist</p>
+                        <p><?php echo $_SESSION['stu_num']; ?></p>
                         <small class="text-uc text-xs text-muted">学校/专业/班级</small>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
+                        <p><?php echo "北华大学(北校区)<br />"; echo $_SESSION['pro']."<br />"; echo $_SESSION['class']."班"; ?></p>
                         <div class="line"></div>
                         <!-- <small class="text-uc text-xs text-muted">connection</small>
                         <p class="m-t-sm"> <a href="#" class="btn btn-rounded btn-twitter btn-icon"><i class="fa fa-twitter"></i></a> <a href="#" class="btn btn-rounded btn-facebook btn-icon"><i class="fa fa-facebook"></i></a> <a href="#" class="btn btn-rounded btn-gplus btn-icon"><i class="fa fa-google-plus"></i></a> </p> -->
