@@ -339,6 +339,7 @@
               </aside>
             </section>
           </section> -->
+          <?php include('student/stu_grade.php');?>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>
       <aside class="bg-light lter b-l aside-md hide" id="notes">
