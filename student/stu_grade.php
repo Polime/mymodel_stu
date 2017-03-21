@@ -1,4 +1,5 @@
 <style type="text/css">
+	table{
 		text-align: center;
 		margin-top: 10px;
 		margin-left: 10px;
