@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
   @session_start();
   if (@$_SESSION['name']=='') {
     echo "<script>alert('请登录！');location = 'login.php';</script>";
@@ -108,7 +108,6 @@
                           <div class="h3 m-t-xs m-b-xs"><?php echo $_SESSION['name']; ?></div>
                           <small class="text-muted"><i class="fa fa-map-marker"></i> 龙潭区, 吉林市</small> </div>
                       </div>
-                      <?php include('student/stu_sub.php'); ?>
                       <div class="panel wrapper panel-success">
                         <div class="row">
                           <div class="col-xs-4"> <a href="#"> <span class="m-b-xs h4 block"><?php echo @$stu_avg;?></span> <small class="text-muted">平均</small> </a> </div>
@@ -340,7 +339,7 @@
               </aside>
             </section>
           </section> -->
-          <?php include('student/stu_grade.php');?>
+          <?php include('student/stu_select.php');?>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>
       <aside class="bg-light lter b-l aside-md hide" id="notes">
