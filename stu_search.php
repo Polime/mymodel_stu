@@ -108,8 +108,10 @@
                           <div class="h3 m-t-xs m-b-xs"><?php echo $_SESSION['name']; ?></div>
                           <small class="text-muted"><i class="fa fa-map-marker"></i> 龙潭区, 吉林市</small> </div>
                       </div>
+                      <?php include('student/stu_sub.php'); ?>
                       <div class="panel wrapper panel-success">
                         <div class="row">
+
                           <div class="col-xs-4"> <a href="#"> <span class="m-b-xs h4 block"><?php echo @$stu_avg;?></span> <small class="text-muted">平均</small> </a> </div>
                           <div class="col-xs-4"> <a href="#"> <span class="m-b-xs h4 block"><?php echo @$stu_count;?></span> <small class="text-muted">已考</small> </a> </div>
                           <div class="col-xs-4"> <a href="#"> <span class="m-b-xs h4 block"><?php echo @$stu_pass;?></span> <small class="text-muted">已过</small> </a> </div>
