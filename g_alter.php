@@ -2,23 +2,27 @@
 $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root"); 
 		$pdo -> query("set names utf8;");
 		@$stu = $_POST['stu'];
-    // @$clas = $_POST['']
-    var_dump($stu);
-    var_dump($clas);
-		$res = $pdo -> query("select tb_stu.stu_num,name,class,profession,class_name,grade from tb_stu,tb_grade,tb_class where tb_stu.stu_num = tb_grade.stu_num and tb_class.class_num = tb_grade.class_num and tb_stu.stu_num = '$stu' ");
+    @$clas = $_POST['clas_name'];
+    // var_dump($stu);
+    // var_dump($clas);
+		$res = $pdo -> query("select tb_stu.stu_num,name,class,profession,class_name,grade from tb_stu,tb_grade,tb_class where tb_stu.stu_num = tb_grade.stu_num and tb_class.class_num = tb_grade.class_num and tb_stu.stu_num = '$stu' and class_name = '$clas'");
 		$row = $res -> fetch();
     // while($row = $res->fetch())
 	// session_start();
 	if (isset($_POST['subm'])) {
-		$stu_num = $_POST['stu_num'];
+		@$stu_num = $_POST['st'];
 		// $name = $_POST['name'];
 		// $class = $_POST['class'];
 		// $pro = $_POST['pro'];
-    $class_na = $_POST['class_na'];
+    $class_na = $_POST['cl'];
     $gra = $_POST['gra'];
 		// $session = @$_SESSION['id'];
 		// $sql = ;
-		$pdo->exec("update tb_grade,tb_class set grade='$gra' where tb_grade.class_num = tb_class.class_num and stu_num = '$stu_num' class_name = '$class_na' ");
+    $c = $pdo->query("select class_num from tb_class where class_name = '$class_na'");
+    while($r = $c->fetch()){
+      $n = $r[0];
+    }
+		$pdo->exec("update tb_grade set grade='$gra' where stu_num = '$stu_num' and class_num = '$n'");
 		// $update->execute();
 		echo "<script>alert('修改成功!');location = 'admin_alt_grade.php';</script>";
 	// }else {
@@ -42,7 +46,14 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
 <!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
 <style type="text/css">
     .biao {
-      width: 120px
+      width: 100px;
+      display: block;
+      float: left;
+      text-align: center;
+      margin-top: 3px;
+    }
+    .grade{
+      width: 100px;
     }
 	</style>
 </head>
@@ -116,7 +127,7 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
                       <!-- <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>H-Layout</span> </a> </li> -->
                     </ul>
                   </li>
-                  <li > <a href="#uikit" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
+                  <li class="active"> <a href="admin_alt_stu.php" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="admin_alt_stu.php" > <i class="fa fa-angle-right"></i> <span>修改学生信息</span> </a> </li>
                       <!-- <li > <a href="icons.html" > <b class="badge bg-info pull-right">369</b> <i class="fa fa-angle-right"></i> <span>Icons</span> </a> </li> -->
@@ -212,14 +223,15 @@ $pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root");
         <section class="vbox">
           <section class="scrollable padder">
             <form method="post" action="g_alter.php" style="margin-top:10px;">
-      				<input class="biao" type="text" name="stu_num" value="<?php echo $row['stu_num']; ?>">
-      				<input class="biao" type="text" name="name" value="<?php echo $row['name']; ?>">
-      				<input class="biao" type="text" name="class" value="<?php echo $row['class']; ?>">
-              <input class="biao" type="text" name="pro" value="<?php echo $row['profession']; ?>">
-              <input class="biao" type="text" name="class_na" value="<?php echo $row['class_name']; ?>">
-      				<input class="biao" type="text" name="gra" value="<?php echo $row['grade']; ?>">
+      				<span class="biao"><?php echo $row['stu_num']; ?></span>
+      	      <span class="biao"><?php echo $row['name']; ?></span>
+      		    <span class="biao"><?php echo $row['class']; ?></span>
+              <span class="biao"><?php echo $row['profession']; ?></span>
+              <span class="biao"><?php echo $row['class_name']; ?></span>
+      				<input class="grade" type="text" name="gra" value="<?php echo $row['grade']; ?>">
       				<input type="submit" name="subm" value="修改">
-      				<input type="hidden" name="id" value="<?php echo @$stu_num; ?>">
+              <input type="hidden" name="st" value="<?php echo $row['stu_num']; ?>">
+      				<input type="hidden" name="cl" value="<?php echo $row['class_name']; ?>">
       			</form>
           </section>
         </section>

@@ -80,7 +80,7 @@
  				<?php $cla_name = $row['class_name']; ?>
  					<input type="submit" name="" value="修改">
  					<input type="hidden" name="stu" value="<?php echo $stu_n?>">
- 					<!-- <input type="hidden" name="clas_name" value="<?php echo $cla_name?>"> -->
+ 					<input type="hidden" name="clas_name" value="<?php echo $cla_name?>">
  				</form>
  			</td>
  		</tr>
