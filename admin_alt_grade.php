@@ -1,5 +1,4 @@
-﻿<?php 
-  include('login/alter.php');
+<?php 
   @session_start();
   if (@$_SESSION['user']=='') {
     echo "<script>alert('请登录！');location = 'login.php';</script>";
@@ -14,21 +13,13 @@
 <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
 <link rel="stylesheet" href="js\calendar/bootstrap_calendar.css" type="text/css" cache="false" />
 <!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
-<style type="text/css">
-  #table_stu_information tr td{
-    width: 300px;
-  }
-  .id {
-    display: none;
-  }
-</style>
 </head>
 <body>
 <section class="vbox">
   <header class="bg-dark dk header navbar navbar-fixed-top-xs">
     <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#" class="navbar-brand" data-toggle="fullscreen">STUDENT</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i class="fa fa-cog"></i> </a> </div>
     <ul class="nav navbar-nav hidden-xs">
-      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">修改学生信息</span> </a>
+      <li class="dropdown"> <a href="admin_alt_grade.php" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">修改学生成绩</span> </a>
        <!--  <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
           
         </section> -->
@@ -72,7 +63,7 @@
           <li> <a href="#"> <span class="badge bg-danger pull-right">3</span> Notifications </a> </li>
           <li> <a href="docs.html">Help</a> </li>
           <li class="divider"></li> -->
-          <li> <a href="login.php"  >退出登录</a> </li>
+          <li> <a href="login.php">退出登录</a> </li>
         </ul>
       </li>
     </ul>
@@ -86,14 +77,14 @@
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
                   <li> <a href="admin_add_stu.php" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
-                  <li > <a href="admin_del_stu.php" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
+                  <li class="active"> <a href="admin_del_stu.php" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="admin_del_stu.php" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
                       <li > <a href="layout-r.html" > <i class="fa fa-angle-right"></i> <span>删除成绩</span> </a> </li>
                       <!-- <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>H-Layout</span> </a> </li> -->
                     </ul>
                   </li>
-                  <li class="active"> <a href="admin_alt_stu.php" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
+                  <li > <a href="admin_alt_stu.php" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="admin_alt_stu.php" > <i class="fa fa-angle-right"></i> <span>修改学生信息</span> </a> </li>
                       <!-- <li > <a href="icons.html" > <b class="badge bg-info pull-right">369</b> <i class="fa fa-angle-right"></i> <span>Icons</span> </a> </li> -->
@@ -175,8 +166,8 @@
       <section id="content">
         <section class="vbox">
           <section class="scrollable padder">
-            <header class="panel-heading text-center"> <strong>修改学生信息</strong> </header>
-            <form action="" class="panel-body wrapper-lg" method="post" name="" 
+           <header class="panel-heading text-center"> <strong>修改学生信息</strong> </header>
+            <form action="admin_alt_grade.php" class="panel-body wrapper-lg" method="post" name="" 
             onsubmit="" enctype="multipart/form-data">
               <div class="form-group">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -219,45 +210,8 @@
                 <input type="submit" name="sub" value="搜索">
               </div>
             </form>
-            <table id="table_stu_information">
-              <tr>
-                <td>学号</td>
-                <td>姓名</td>
-                <td>班级</td>
-                <td>专业</td>
-              </tr>
-              <?php 
-                foreach($res as $row){
-                  $stu_num = $row['stu_num'];
-                  echo "<tr>";
-                  echo "<td>";
-                  echo $row['stu_num'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo $row['name'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo $row['class'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo $row['profession'];
-                  echo "</td>";
-                  echo "<td>";
-                  echo "<form method='post' action='r_alter.php'>";
-                  echo "<input type='submit' name='submit' value='修改'>";
-                  $id = $row['id'];
-                  echo "<input class='id' name='id' value='$id'>";
-                  echo "</form>";
-                  // $_SESSION['id'] = $row['id'];
-                  // $_SESSION['stu_num'] = $row['stu_num'];
-                  // $_SESSION['name'] = $row['name'];
-                  // $_SESSION['class'] = $row['class'];
-                  // $_SESSION['pro'] = $row['profession'];
-                  echo "</td>";
-                  echo "</tr>";
-                }
-               ?>
-            </table>
+            <?php include('login/alt_grade.php'); ?>
+            
           </section>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>

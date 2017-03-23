@@ -11,6 +11,9 @@
 		$class = @$_POST['class'];
 		$info = @$_POST['info'];
 		// if (isset($_POST['sub'])) {
+		if($info == '' && $pro == '' && $class == ''){
+				$res = $pdo-> query("select * from tb_stu");
+		}else{
 			if (preg_match('/^\d{12}$/', $info)) {
 			// 	$sql = ;
 				$res = $pdo-> query("select * from tb_stu where stu_num = '$info'");
@@ -18,7 +21,7 @@
 				// $sql = 
 				if ($pro == ''||$class == '') {
 					$res = $pdo-> query("select * from tb_stu where profession = '$pro' or class = '$class'");
-				}if ($pro == ''&&$class == '') {
+				}else if ($pro == ''&&$class == '') {
 					$res = $pdo-> query("select * from tb_stu");
 				}
 				else {
@@ -39,9 +42,10 @@
 			// 	echo "<script>alert(修改成功!);</script>";
 			}else{
 				// $sql = ;
-				$res = $pdo-> query("select * from tb_stu where name = '$info'");
+				$res = $pdo-> query("select * from tb_stu where name = '$info' or profession = '$info' or class = '$info' or  stu_num = '$info'");
 			// 	$row = $res -> fetch();
 			}
+		}
 		// }
 		
 		// while($row = $rs -> fetch())

@@ -1,21 +1,36 @@
-<?php
-  @session_start();
-  @$id_num = $_POST['alt'];
-  @mysql_connect('localhost','root','root') or die("数据库连接失败");
-  @mysql_select_db('db_admin')or die ("数据表选择失败");
-  $sql = mysql_query("select id,user,password from tb_admin where id=$id_num");
-  $row = @mysql_fetch_array($sql);
-
-  if(isset($_POST['alter'])){
-    $user = @$_POST['user_name'];
-    $pass = @$_POST['pass'];
-    $id_num = @$_POST['id'];
-    $update = "update tb_admin set user='$user',password='$pass' where id = '$id_num'";
-    mysql_query($update);
-    echo "<script>alert('修改成功!');location = 'update.php';</script>";
-  }
+<?php 
+$pdo= new PDO("mysql:host=localhost;dbname=db_student","root","root"); 
+		$pdo -> query("set names utf8;");
+		@$stu = $_POST['stu'];
+    // @$clas = $_POST['']
+    var_dump($stu);
+    var_dump($clas);
+		$res = $pdo -> query("select tb_stu.stu_num,name,class,profession,class_name,grade from tb_stu,tb_grade,tb_class where tb_stu.stu_num = tb_grade.stu_num and tb_class.class_num = tb_grade.class_num and tb_stu.stu_num = '$stu' ");
+		$row = $res -> fetch();
+    // while($row = $res->fetch())
+	// session_start();
+	if (isset($_POST['subm'])) {
+		$stu_num = $_POST['stu_num'];
+		// $name = $_POST['name'];
+		// $class = $_POST['class'];
+		// $pro = $_POST['pro'];
+    $class_na = $_POST['class_na'];
+    $gra = $_POST['gra'];
+		// $session = @$_SESSION['id'];
+		// $sql = ;
+		$pdo->exec("update tb_grade,tb_class set grade='$gra' where tb_grade.class_num = tb_class.class_num and stu_num = '$stu_num' class_name = '$class_na' ");
+		// $update->execute();
+		echo "<script>alert('修改成功!');location = 'admin_alt_grade.php';</script>";
+	// }else {
+	}
  ?>
-
+<?php 
+  // include('signup.php');
+@session_start();
+  if (@$_SESSION['user']=='') {
+    echo "<script>alert('请登录！');location = 'login.php';</script>";
+  }
+?>
 <html lang="en" class="app">
 <head>
 <meta charset="utf-8" />
@@ -26,9 +41,9 @@
 <link rel="stylesheet" href="js\calendar/bootstrap_calendar.css" type="text/css" cache="false" />
 <!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
 <style type="text/css">
-		.id{
-			display: none;
-		}
+    .biao {
+      width: 120px
+    }
 	</style>
 </head>
 <body>
@@ -36,7 +51,7 @@
   <header class="bg-dark dk header navbar navbar-fixed-top-xs">
     <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#" class="navbar-brand" data-toggle="fullscreen">STUDENT</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i class="fa fa-cog"></i> </a> </div>
     <ul class="nav navbar-nav hidden-xs">
-      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">修改管理员信息</span> </a>
+      <li class="dropdown"> <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"> <i class="fa fa-building-o"></i> <span class="font-bold">修改学生信息</span> </a>
        <!--  <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
           
         </section> -->
@@ -101,7 +116,7 @@
                       <!-- <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>H-Layout</span> </a> </li> -->
                     </ul>
                   </li>
-                  <li > <a href="admin_alt_stu.php" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
+                  <li > <a href="#uikit" > <i class="fa fa-flask icon"> <b class="bg-success"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>修改学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="admin_alt_stu.php" > <i class="fa fa-angle-right"></i> <span>修改学生信息</span> </a> </li>
                       <!-- <li > <a href="icons.html" > <b class="badge bg-info pull-right">369</b> <i class="fa fa-angle-right"></i> <span>Icons</span> </a> </li> -->
@@ -196,13 +211,16 @@
       <section id="content">
         <section class="vbox">
           <section class="scrollable padder">
-            <form method="post" action="d_alter.php" style="margin-top:10px;">
-      				<input type="text" name="user_name" value="<?php echo $row['user']; ?>">
-      				<input type="text" name="pass" value="<?php echo $row['password']; ?>">
-      				<input type="submit" name="alter" value="修改">
-              <?php $num = $row['id']?>
-      				<input type="text" class='id' name="id" value="<?php echo $num;?>">
-			       </form>
+            <form method="post" action="g_alter.php" style="margin-top:10px;">
+      				<input class="biao" type="text" name="stu_num" value="<?php echo $row['stu_num']; ?>">
+      				<input class="biao" type="text" name="name" value="<?php echo $row['name']; ?>">
+      				<input class="biao" type="text" name="class" value="<?php echo $row['class']; ?>">
+              <input class="biao" type="text" name="pro" value="<?php echo $row['profession']; ?>">
+              <input class="biao" type="text" name="class_na" value="<?php echo $row['class_name']; ?>">
+      				<input class="biao" type="text" name="gra" value="<?php echo $row['grade']; ?>">
+      				<input type="submit" name="subm" value="修改">
+      				<input type="hidden" name="id" value="<?php echo @$stu_num; ?>">
+      			</form>
           </section>
         </section>
         <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> </section>
@@ -215,4 +233,3 @@
 <script src="js/app.v2.js"></script> <!-- Bootstrap --> <!-- App --> <script src="js/charts/easypiechart/jquery.easy-pie-chart.js" cache="false"></script> <script src="js/charts/sparkline/jquery.sparkline.min.js" cache="false"></script> <script src="js/charts/flot/jquery.flot.min.js" cache="false"></script> <script src="js/charts/flot/jquery.flot.tooltip.min.js" cache="false"></script> <script src="js/charts/flot/jquery.flot.resize.js" cache="false"></script> <script src="js/charts/flot/jquery.flot.grow.js" cache="false"></script> <script src="js/charts/flot/demo.js" cache="false"></script> <script src="js/calendar/bootstrap_calendar.js" cache="false"></script> <script src="js/calendar/demo.js" cache="false"></script> <script src="js/sortable/jquery.sortable.js" cache="false"></script>
 </body>
 </html>
-

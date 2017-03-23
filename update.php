@@ -89,7 +89,7 @@
                     <ul class="nav lt">
                       <li > <a href="admin_alt_stu.php" > <i class="fa fa-angle-right"></i> <span>修改学生信息</span> </a> </li>
                       <!-- <li > <a href="icons.html" > <b class="badge bg-info pull-right">369</b> <i class="fa fa-angle-right"></i> <span>Icons</span> </a> </li> -->
-                      <li > <a href="grid.html" > <i class="fa fa-angle-right"></i> <span>修改成绩</span> </a> </li>
+                      <li > <a href="admin_alt_grade.php" > <i class="fa fa-angle-right"></i> <span>修改成绩</span> </a> </li>
                       <!-- <li > <a href="widgets.html" > <b class="badge pull-right">8</b> <i class="fa fa-angle-right"></i> <span>Widgets</span> </a> </li>
                       <li > <a href="components.html" > <i class="fa fa-angle-right"></i> <span>Components</span> </a> </li>
                       <li > <a href="list.html" > <i class="fa fa-angle-right"></i> <span>List group</span> </a> </li>
