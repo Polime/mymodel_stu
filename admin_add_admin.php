@@ -79,7 +79,13 @@
             <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333"> <!-- nav -->
               <nav class="nav-primary hidden-xs">
                 <ul class="nav">
-                  <li> <a href="admin_add_stu.php" class="active"> <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span>增加学生信息</span> </a> </li>
+                   <li > <a href="admin_add_stu.php" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>增加学生信息</span> </a>
+                    <ul class="nav lt">
+                      <li > <a href="admin_add_stu.php" > <i class="fa fa-angle-right"></i> <span>增加学生</span> </a> </li>
+                      <li > <a href="admin_add_grade.php" > <i class="fa fa-angle-right"></i> <span>增加成绩</span> </a> </li>
+                      <!-- <li > <a href="layout-h.html" > <i class="fa fa-angle-right"></i> <span>H-Layout</span> </a> </li> -->
+                    </ul>
+                  </li>
                   <li > <a href="admin_del_stu.php" > <i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>删除学生信息</span> </a>
                     <ul class="nav lt">
                       <li > <a href="admin_del_stu.php" > <i class="fa fa-angle-right"></i> <span>删除学生</span> </a> </li>
